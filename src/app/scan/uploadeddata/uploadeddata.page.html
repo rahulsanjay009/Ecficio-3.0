@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>uploadeddata</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content > 
+  <ion-list >
+    <ion-item *ngFor="let i of users">
+    <ion-avatar slot="start" style="width: 20%;">
+      
+      <p>{{ i.receipt }}<p>
+    </ion-avatar>
+    <ion-label style="font-size: medium;">
+      
+        <ion-row >
+          <p>name : {{i.name}} </p>
+        </ion-row>
+        <ion-row >
+          <p>college : {{i.college}}</p>
+        </ion-row>
+        <ion-row>
+          <p>contact :  {{i.phone}} </p> 
+        </ion-row>
+        <ion-row>
+          <p> score: {{ i.r1marks}}</p>
+        
+      </ion-row>
+      
+    </ion-label>
+  </ion-item>
+  </ion-list>
+
+</ion-content>

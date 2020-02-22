@@ -6,47 +6,45 @@ const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
-    children: [
+    children: [              
+        {
+          path: 'register',
+          loadChildren: () => import('../register/register.module').then( m => m.RegisterPageModule)
+        },
+        {
+          path: 'organizer',
+          loadChildren: () => import('../scan/scan.module').then( m => m.ScanPageModule)
+        },
+        {
+          path: 'events',
+          loadChildren: () => import('../events/events.module').then( m => m.EventsPageModule)
+        },          
       {
-        path: 'tab1',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
-        ]
+        path: 'events/:id',
+        loadChildren: () => import('../selected-event/selected-event.module').then( m => m.SelectedEventPageModule)
+      }, 
+      {
+        path: 'organizer/studentlist/:ghi',
+        loadChildren: () => import('../scan/students-list/students-list.module').then( m => m.StudentsListPageModule)
+      },      
+      {
+        path: 'getqr',
+        loadChildren: () => import('../get-qr/get-qr.module').then( m => m.GetQRPageModule)
       },
       {
-        path: 'tab2',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
-          }
-        ]
+        path: 'register/:abc',
+        loadChildren: () => import('../qrgenerate/qrgenerate.module').then( m => m.QrgeneratePageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/events',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/events',
     pathMatch: 'full'
   }
 ];

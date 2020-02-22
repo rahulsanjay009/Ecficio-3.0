@@ -1,0 +1,49 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>QR CODE Generated</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="background-color:aquamarine;">
+    <ion-row style="margin-top:10%">
+      <ion-col>
+        <div>
+
+        </div>
+      </ion-col>
+      <ion-col >
+        <div>
+      <ion-text color="primary" align="center">
+       <h1 style="color:black;"><b>Ecficio 3.0</b></h1>   
+       </ion-text>
+        <div align="center">
+      <ngx-qrcode qrc-element-type="img"  [(qrc-value)]="qrdata" >
+      </ngx-qrcode>
+      </div>
+      <ion-text color="primary" align="center">
+        <div align="center" style="color:black;">{{registerUser.name}}</div>
+        <p style="color:black;">Thanks For Registering!!</p>
+      </ion-text>
+      <ion-datetime displayFormat="MMM DD YYYY, h:mm A" [(ngModel)]="myDate" style="color:black;"></ion-datetime>
+      <p style="color:black;"><b>Note:</b>Please Show The <b>QRCODE</b> at the Time of Participating in Events</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div >
+            
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      
+    </ion-row>
+  </ion-grid>
+      
+    
+</ion-content>

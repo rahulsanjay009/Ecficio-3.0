@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/"></ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-title>studentsList</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          Name
+        </ion-col>
+        
+        <ion-col size="3">
+           score
+        </ion-col>
+        <ion-col size="5">
+          Update score
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let a of dataArray">
+        <ion-col size="3">
+          {{a.name}}
+        </ion-col>
+        <ion-col size="3">
+          {{a.r1marks}}
+        </ion-col>
+        
+        <ion-col size="4">       
+            <ion-item>
+              <ion-label position="floating" size="small">  enter score  </ion-label>
+              <ion-input type="number" #r1marks  placeholder=0></ion-input>
+            </ion-item> 
+        </ion-col>
+        
+        <ion-col size="2">
+          <ion-button expand="full" size="small" (click)="update(a,r1marks.value)"><ion-icon name="create-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button expand="block" size="small" (click)="upload()">Upload</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item *ngIf="!bo" onic cordo>
+    <ion-label position="floating" >Security code</ion-label>
+    <ion-input type="password" #pass></ion-input>
+    <ion-button (click)="authenticate(pass)"> Authenticate </ion-button>
+    
+  </ion-item>
+  
+  
+  
+  
+  <form [formGroup]="registrationForm" (ngSubmit)="createCode()" *ngIf="bo">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating"> Receipt no.   </ion-label>
+        <ion-input formControlName="receipt" inputmode="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> Name   </ion-label>
+        <ion-input formControlName="name" inputmode="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> college   </ion-label>
+        <ion-input formControlName="college" inputmode="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> phone   </ion-label>
+        <ion-input formControlName="phone" inputmode="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">  roll no   </ion-label>
+        <ion-input formControlName="rollno" inputmode="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> email   </ion-label>
+        <ion-input formControlName="email" inputmode="text" required></ion-input>
+      </ion-item>
+      <ion-button padding  expand="block" type=submit size="small">Generate code<ion-icon slot="end" name="create"></ion-icon></ion-button>
+      <ion-button padding  expand="block" size="small" (click)="unauth()">logout</ion-button>
+    </ion-list>
+   
+  </form>
+
+  {{status}}
+
+
+  <ion-list inset="true" *ngIf="bo">
+    <ion-text> <h4> Registered Users : {{ dbUsers.length }} </h4> </ion-text>
+    <ion-item *ngFor="let i of dbUsers" >
+    <ion-avatar slot="start" style="width: 20%;">
+      
+      <p>{{ i.receipt }}<p>
+    </ion-avatar>
+    <ion-label style="font-size: medium;">
+      
+        <ion-row >
+          <p> name : {{i.name}}</p>
+        </ion-row>
+        <ion-row >
+          <p>college : {{i.college}} </p>
+       
+      </ion-row>
+       
+        <ion-row>
+          <p>rollno :  {{i.rollno}} </p> 
+    </ion-row>
+    </ion-label>
+  </ion-item>
+  </ion-list>
+</ion-content>
+

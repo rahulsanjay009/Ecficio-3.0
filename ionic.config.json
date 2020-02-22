@@ -1,7 +1,8 @@
 {
   "name": "dump",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

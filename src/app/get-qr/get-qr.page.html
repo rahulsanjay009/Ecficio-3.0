@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>getQR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="bo">
+      <ion-item>
+        <ion-label position="floating">Receipt no</ion-label>
+        <ion-input type="text" #r></ion-input>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">enter mobile no</ion-label>
+        <ion-input type="text" #phne></ion-input>
+      </ion-item>
+      <ion-button size="small" expand="full" (click)="getqr(r.value,phne.value)"> get my qr </ion-button>
+     <h6 align=center> {{msg}}</h6>
+    </div>
+      <ion-grid style="background-color:aquamarine;" *ngIf="!bo">
+        <ion-row style="margin-top:10%">
+          <ion-col>
+            <div>
+    
+            </div>
+          </ion-col>
+          <ion-col >
+            <div>
+          <ion-text color="primary" align="center">
+           <h1 style="color:black;"><b>Ecficio 3.0</b></h1>   
+           </ion-text>
+            <div align="center">
+          <ngx-qrcode [(qrc-element-type)]="elementType"  [(qrc-value)]="qrdata" >
+          </ngx-qrcode>
+          </div>
+          <ion-text color="primary" align="center">
+            <div align="center" style="color:black;">{{registeredUser.name}}</div>
+            <p style="color:black;">Thanks For Registering!!</p>
+          </ion-text>
+          <ion-datetime displayFormat="MMM DD YYYY, h:mm A" [(ngModel)]="myDate" style="color:black;"></ion-datetime>
+          <p style="color:black;"><b>Note:</b>Please Show The <b>QRCODE</b> at the Time of Participating in Events</p>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div >
+                
+            </div>
+          </ion-col>
+    
+        </ion-row>
+       
+      </ion-grid>
+      <ion-row *ngIf="!bo">
+        <ion-button (click)="done()" size="medium" fill="outline">done</ion-button>
+    </ion-row>
+    
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>{{event}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!bo">
+    <ion-item>
+      <ion-label position="floating" size=small>EVENTS</ion-label>
+      <ion-select value="Event" [(ngModel)]="event" >
+        <ion-select-option [value]="e.eventname" *ngFor="let e of events">{{e.eventname}}</ion-select-option>
+        
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" size=small>password</ion-label>
+      <ion-input type="password" #password></ion-input>
+    </ion-item>
+    
+      <ion-button (click)="SelectedEvent(password.value,ref)" expand="block">login</ion-button>
+{{msg}}
+
+    
+  </ion-list>
+  <div *ngIf="bo">
+  <ion-button expand="block" type="submit" (click)="Scancode()">Scancode<ion-icon name="scan-outline" slot="end"></ion-icon></ion-button>
+  <ion-card *ngIf="!data.receipt==''"> 
+    <ion-card-content>
+        {{status+" "}}<br>
+        receipt : {{data.receipt}} <br>
+        name : {{data.name}}<br>
+        college : {{data.college}}  <br>       
+        contact : {{data.phone}} <br>
+        rollno : {{data.rollno}} <br>
+        email : {{data.email}} 
+        
+        
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="block"  (click)="UpdateMarks()" > Update <ion-icon name="arrow-up-circle-outline" slot="end"></ion-icon></ion-button> 
+
+  <ion-button expand="block"  (click)="UploadedData()" >UploadedData</ion-button> 
+  
+  <ion-button expand="block"  (click)="logout()" >logout<ion-icon name="log-out-outline" slot="end"></ion-icon></ion-button> 
+</div>
+</ion-content>
