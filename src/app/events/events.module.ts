@@ -9,7 +9,7 @@ import { EventsPageRoutingModule } from './events-routing.module';
 import { EventsPage } from './events.page';
 
 @NgModule({
-  imports: [
+  imports:[
     CommonModule,
     FormsModule,
     IonicModule,

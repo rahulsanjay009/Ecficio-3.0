@@ -5,7 +5,7 @@ const auth_key="AUTH";
 const event_key="EVENT";
 const getqr_key="GETQR";
 @Injectable({
-  providedIn: 'root'
+  providedIn:'root'
 })
 export class StorageService {
   

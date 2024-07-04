@@ -9,7 +9,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { QrgeneratePage } from './qrgenerate.page';
 
 @NgModule({
-  imports: [
+  imports:[
     CommonModule,
     FormsModule,
     IonicModule,

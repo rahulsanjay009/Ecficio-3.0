@@ -6,7 +6,7 @@ import { StorageService } from '../services/storage.service';
 @Component({
   selector: 'app-get-qr',
   templateUrl: './get-qr.page.html',
-  styleUrls: ['./get-qr.page.scss'],
+  styleUrls:['./get-qr.page.scss'],
 })
 export class GetQRPage implements OnInit {
   qrdata;

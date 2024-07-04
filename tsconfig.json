@@ -10,6 +10,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true, // Add this line to skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
@@ -24,3 +27,5 @@
     "strictInjectionParameters": true
   }
 }
+
+
